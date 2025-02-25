@@ -5,9 +5,7 @@
     "description": "Launcher Mincraft created by PeaceDuck",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
-        "email": "contact@luuxis.fr",
-        "url": "http://188.115.151.201:44/"
+        "name": "luuxis, Inc."
     },
     "url": "http://188.115.151.201:44/",
     "scripts": {

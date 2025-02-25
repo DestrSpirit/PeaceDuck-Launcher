@@ -120,7 +120,7 @@ class Splash {
             this.startLauncher();
         }).catch(e => {
             console.error(e);
-            return this.shutdown("No connection available,<br>please try again later.");
+            return this.shutdown(e);
         })
     }
 

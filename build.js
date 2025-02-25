@@ -88,26 +88,6 @@ class Index {
                     allowToChangeInstallationDirectory: false,
                     createDesktopShortcut: true,
                     runAfterFinish: true
-                },
-                mac: {
-                    icon: "./app/assets/images/icon.icns",
-                    category: "public.app-category.games",
-                    identity: null,
-                    target: [{
-                        target: "dmg",
-                        arch: "universal"
-                    },
-                    {
-                        target: "zip",
-                        arch: "universal"
-                    }]
-                },
-                linux: {
-                    icon: "./app/assets/images/icon.png",
-                    target: [{
-                        target: "AppImage",
-                        arch: "x64"
-                    }]
                 }
             }
         }).then(() => {
