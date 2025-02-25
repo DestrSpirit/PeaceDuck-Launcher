@@ -36,8 +36,8 @@ class Login {
 
         microsoftBtn.addEventListener("click", () => {
             popupLogin.openPopup({
-                title: 'Connexion',
-                content: 'Veuillez patienter...',
+                title: 'Login',
+                content: 'Stand by...',
                 color: 'var(--color)'
             });
 
@@ -52,7 +52,7 @@ class Login {
 
             }).catch(err => {
                 popupLogin.openPopup({
-                    title: 'Erreur',
+                    title: 'Oops..',
                     content: err,
                     options: true
                 });
@@ -72,8 +72,8 @@ class Login {
         connectOffline.addEventListener('click', async () => {
             if (emailOffline.value.length < 3) {
                 popupLogin.openPopup({
-                    title: 'Erreur',
-                    content: 'Votre pseudo doit faire au moins 3 caractères.',
+                    title: 'Oops..',
+                    content: 'Your username must be at least 3 characters long.',
                     options: true
                 });
                 return;
@@ -81,8 +81,8 @@ class Login {
 
             if (emailOffline.value.match(/ /g)) {
                 popupLogin.openPopup({
-                    title: 'Erreur',
-                    content: 'Votre pseudo ne doit pas contenir d\'espaces.',
+                    title: 'Oops..',
+                    content: 'Your username must not contain spaces.',
                     options: true
                 });
                 return;
@@ -92,7 +92,7 @@ class Login {
 
             if (MojangConnect.error) {
                 popupLogin.openPopup({
-                    title: 'Erreur',
+                    title: 'Oops..',
                     content: MojangConnect.message,
                     options: true
                 });
@@ -121,15 +121,15 @@ class Login {
 
         AZauthConnectBTN.addEventListener('click', async () => {
             PopupLogin.openPopup({
-                title: 'Connexion en cours...',
-                content: 'Veuillez patienter...',
+                title: 'Connecting...',
+                content: 'Stand by...',
                 color: 'var(--color)'
             });
 
             if (AZauthEmail.value == '' || AZauthPassword.value == '') {
                 PopupLogin.openPopup({
-                    title: 'Erreur',
-                    content: 'Veuillez remplir tous les champs.',
+                    title: 'Oops..',
+                    content: 'All fields must be filled.',
                     options: true
                 });
                 return;
@@ -139,7 +139,7 @@ class Login {
 
             if (AZauthConnect.error) {
                 PopupLogin.openPopup({
-                    title: 'Erreur',
+                    title: 'Oops..',
                     content: AZauthConnect.message,
                     options: true
                 });
@@ -156,15 +156,15 @@ class Login {
 
                 connectAZauthA2F.addEventListener('click', async () => {
                     PopupLogin.openPopup({
-                        title: 'Connexion en cours...',
-                        content: 'Veuillez patienter...',
+                        title: 'Connecting...',
+                        content: 'Stand by...',
                         color: 'var(--color)'
                     });
 
                     if (AZauthA2F.value == '') {
                         PopupLogin.openPopup({
-                            title: 'Erreur',
-                            content: 'Veuillez entrer le code A2F.',
+                            title: 'Oops..',
+                            content: 'Please enter the A2F code.',
                             options: true
                         });
                         return;
@@ -174,7 +174,7 @@ class Login {
 
                     if (AZauthConnect.error) {
                         PopupLogin.openPopup({
-                            title: 'Erreur',
+                            title: 'Error',
                             content: AZauthConnect.message,
                             options: true
                         });
