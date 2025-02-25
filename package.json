@@ -1,12 +1,9 @@
 {
     "name": "PeaceDuck-Launcher",
     "preductname": "PeaceDuck Launcher",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Launcher Mincraft created by PeaceDuck",
     "main": "src/app.js",
-    "author": {
-        "name": "luuxis, Inc."
-    },
     "url": "http://188.115.151.201:44/",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
