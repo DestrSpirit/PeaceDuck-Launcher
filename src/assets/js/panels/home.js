@@ -2,7 +2,7 @@
  * @author Luuxis
  * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
-import { config, database, logger, changePanel, appdata, setStatus, pkg, popup } from '../utils.js'
+import { config, database, logger, changePanel, appdata, setStatus, pkg, popup, getExcludedFilesRecursively } from '../utils.js'
 
 const { Launch } = require('minecraft-java-core')
 const { shell, ipcRenderer } = require('electron')
@@ -205,12 +205,19 @@ class Home {
         let infoStartingBOX = document.querySelector('.info-starting-game')
         let infoStarting = document.querySelector(".info-starting-game-text")
         let progressBar = document.querySelector('.progress-bar')
+        
+        let path = `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`;
+
+        if (options.verifyOnly.length > 0){
+            options.verify = true;
+            options.ignored = getExcludedFilesRecursively(path + '/instances/' + options.name, options.verifyOnly);
+        }
 
         let opt = {
             url: options.url,
             authenticator: authenticator,
             timeout: 10000,
-            path: `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
+            path: path,
             instance: options.name,
             version: options.loadder.minecraft_version,
             detached: configClient.launcher_config.closeLauncher == "close-all" ? false : true,
@@ -253,7 +260,7 @@ class Home {
         });
 
         launch.on('progress', (progress, size) => {
-            infoStarting.innerHTML = `Téléchargement ${((progress / size) * 100).toFixed(0)}%`
+            infoStarting.innerHTML = `Connection.. ${((progress / size) * 100).toFixed(0)}%`
             ipcRenderer.send('main-window-progress', { progress, size })
             progressBar.value = progress;
             progressBar.max = size;

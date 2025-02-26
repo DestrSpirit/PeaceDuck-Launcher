@@ -6,6 +6,7 @@
 const { ipcRenderer } = require('electron')
 const { Status } = require('minecraft-java-core')
 const fs = require('fs');
+const { globSync } = require('glob');
 const pkg = require('../package.json');
 
 import config from './utils/config.js';
@@ -113,6 +114,10 @@ async function setStatus(opt) {
     }
 }
 
+function getExcludedFilesRecursively(dirpath, exclude){
+    let files  = globSync( '*', {ignore:exclude, absolute:false, cwd:dirpath});
+    return files;
+};
 
 export {
     appdata as appdata,
@@ -127,5 +132,6 @@ export {
     accountSelect as accountSelect,
     slider as Slider,
     pkg as pkg,
-    setStatus as setStatus
+    setStatus as setStatus,
+    getExcludedFilesRecursively as getExcludedFilesRecursively
 }
