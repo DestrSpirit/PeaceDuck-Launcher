@@ -4,7 +4,7 @@
  */
 
 const { ipcRenderer } = require('electron')
-const { Status } = require('minecraft-java-core')
+const { Status } = require('mc-java-core-333')
 const fs = require('fs');
 const { globSync } = require('glob');
 const pkg = require('../package.json');

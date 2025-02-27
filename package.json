@@ -1,7 +1,7 @@
 {
     "name": "PeaceDuck-Launcher",
     "preductname": "PeaceDuck Launcher",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "Launcher Mincraft created by PeaceDuck",
     "main": "src/app.js",
     "url": "http://188.115.151.201:44/",
@@ -19,7 +19,8 @@
     "dependencies": {
         "electron-updater": "^6.1.8",
         "glob": "^11.0.1",
-        "minecraft-java-core": "^3.11.2",
+        "help": "^3.0.2",
+        "mc-java-core-333": "github:DestrSpirit/mc-java-core-333#1.6.2",
         "node": "^18.20.7",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
